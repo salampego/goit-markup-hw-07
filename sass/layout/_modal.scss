@@ -1,3 +1,17 @@
+.backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  transition: visibility 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(0, 0, 0, 0.2);
+}
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
@@ -7,11 +21,13 @@
   width: 18px;
   height: 18px;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus,
+  &:hover {
+    fill: var(--accent-color);
+  }
 }
-.backdrop-icon:focus,
-.backdrop-icon:hover {
-  fill: var(--accent-color);
-}
+
 .modal {
   padding: 40px;
   position: absolute;
@@ -79,6 +95,10 @@
   outline: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+
+  &:focus-within {
+    border-color: var(--accent-color);
+  }
 }
 .icon-input-modal {
   position: absolute;
@@ -88,17 +108,12 @@
   transform: translateY(-50%);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .input-modal-form:focus + & {
+    fill: var(--accent-color);
+  }
 }
 
-.input-modal-form:focus + .icon-input-modal {
-  fill: var(--accent-color);
-}
-.input-modal-form:focus-within {
-  border-color: var(--accent-color);
-}
-.comment-modal-form:focus-within {
-  border-color: var(--accent-color);
-}
 .contract-modal {
   display: flex;
   justify-content: center;
@@ -127,13 +142,16 @@
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   outline: none;
-}
 
-.comment-modal-form::placeholder {
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
+  &:focus-within {
+    border-color: var(--accent-color);
+  }
+  &::placeholder {
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+  }
 }
 
 .modal-checkbox {
@@ -158,15 +176,16 @@
   width: 16px;
   height: 15px;
   background-origin: border-box;
-}
-.modal-checkbox:checked + .icon-checkbox-modal {
-  background-image: url(../images/check.svg);
-  background-color: var(--accent-color);
-  border-radius: 2px;
-  border-color: transparent;
-  margin-right: 7px;
-  width: 16px;
-  height: 15px;
-  background-size: cover;
-  background-position: 50% 50%;
+
+  .modal-checkbox:checked + & {
+    background-image: url(../images/check.svg);
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    border-color: transparent;
+    margin-right: 7px;
+    width: 16px;
+    height: 15px;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
 }

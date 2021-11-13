@@ -52,7 +52,8 @@
   margin-right: 10px;
   width: 44px;
   height: 44px;
-}
-.social-item:last-child {
-  margin-right: 0px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
 }

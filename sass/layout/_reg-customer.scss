@@ -13,10 +13,12 @@
   margin-right: 30px;
   width: 170px;
   height: 92px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
 }
-.reg_customer_item:last-child {
-  margin-right: 0px;
-}
+
 .reg-customer-link {
   display: flex;
   justify-content: center;
@@ -28,12 +30,14 @@
   fill: #afb1b8;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    border: 1px solid var(--accent-color);
+    fill: var(--accent-color);
+  }
 }
-.reg-customer-link:hover,
-.reg-customer-link:focus {
-  border: 1px solid var(--accent-color);
-  fill: var(--accent-color);
-}
+
 .reg_customer_icon {
   width: 106px;
   height: 60px;
